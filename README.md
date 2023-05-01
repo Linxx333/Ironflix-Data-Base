@@ -1,6 +1,6 @@
 # Ironflix-Data-Base
 
-(img/blockbuster)
+(img/blockbuster.jpg)
 
 
 # Objetivo principal
