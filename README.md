@@ -1,4 +1,4 @@
-# Ironflix-Data-Base
+# Ironflix-Database
 
 ![Blockbuster](img/blockbuster.jpg)
 
