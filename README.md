@@ -1,6 +1,6 @@
 # Ironflix-Data-Base
 
-!![Ironhack logo](img/blockbuster.jpg)
+![Blockbuster](img/blockbuster.jpg)
 
 
 # Objetivo principal
@@ -21,7 +21,7 @@ El proceso se divide en los siguientes pasos:
 
 Para empezar en base a la observación de los datos estructuro un modelo entidad relación de la siguiente manera:
 
-!![Ironhack logo](img/FinalSchemeIronflix.png)
+![Scheme](img/FinalSchemeIronflix.png)
 
 Explicado de izquierda a derecha se entiende que:
     
