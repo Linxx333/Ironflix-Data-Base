@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `ironflix`.`film` (
   `rating` VARCHAR(15) NOT NULL,
   `special_features` VARCHAR(100) NULL DEFAULT NULL,
   `last_update` DATETIME NULL DEFAULT NULL,
-  `category_id` INT NULL,
+  `category_id` INT NULL DEFAULT NULL,
   PRIMARY KEY (`film_id`),
   UNIQUE INDEX `title_UNIQUE` (`title` ASC) VISIBLE,
   UNIQUE INDEX `description_UNIQUE` (`description` ASC) VISIBLE,
@@ -129,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `ironflix`.`stores` (
   `store_id` INT NOT NULL,
   `address` VARCHAR(150) NOT NULL,
   `mall` VARCHAR(100) NULL DEFAULT NULL,
-  `city` VARCHAR(45) NULL,
+  `city` VARCHAR(45) NULL DEFAULT NULL,
   `last_update` DATETIME NULL DEFAULT NULL,
   PRIMARY KEY (`store_id`),
   UNIQUE INDEX `dirección_UNIQUE` (`address` ASC) VISIBLE,
@@ -148,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `ironflix`.`inventory` (
   `store_id` INT NOT NULL,
   `language_id` INT NOT NULL,
   `last_update` DATETIME NULL DEFAULT NULL,
-  PRIMARY KEY (`inventory_id`, `film_id`, `store_id`, `language_id`),
+  PRIMARY KEY (`inventory_id`),
   INDEX `fk_inventory_stores1_idx` (`store_id` ASC) VISIBLE,
   INDEX `fk_inventory_film1_idx` (`film_id` ASC) VISIBLE,
   INDEX `fk_inventory_language1_idx` (`language_id` ASC) VISIBLE,
@@ -199,22 +199,21 @@ CREATE TABLE IF NOT EXISTS `ironflix`.`rental` (
   `customer_id` INT NOT NULL,
   `staff_id` INT NOT NULL,
   `inventory_id` INT NOT NULL,
-  `film_id` INT NOT NULL,
-  `store_id` INT NOT NULL,
-  `language_id` INT NOT NULL,
-  PRIMARY KEY (`rental_id`, `customer_id`, `staff_id`, `inventory_id`, `film_id`, `store_id`, `language_id`),
+  PRIMARY KEY (`rental_id`, `customer_id`, `staff_id`, `inventory_id`),
   INDEX `fk_rental_clients1_idx` (`customer_id` ASC) VISIBLE,
   INDEX `fk_rental_staff1_idx` (`staff_id` ASC) VISIBLE,
-  INDEX `fk_rental_inventory1_idx` (`inventory_id` ASC, `film_id` ASC, `store_id` ASC, `language_id` ASC) VISIBLE,
+  INDEX `fk_rental_inventory1_idx` (`inventory_id` ASC) VISIBLE,
   CONSTRAINT `fk_rental_clients1`
     FOREIGN KEY (`customer_id`)
     REFERENCES `ironflix`.`clients` (`customer_id`),
-  CONSTRAINT `fk_rental_inventory1`
-    FOREIGN KEY (`inventory_id` , `film_id` , `store_id` , `language_id`)
-    REFERENCES `ironflix`.`inventory` (`inventory_id` , `film_id` , `store_id` , `language_id`),
   CONSTRAINT `fk_rental_staff1`
     FOREIGN KEY (`staff_id`)
-    REFERENCES `ironflix`.`staff` (`staff_id`))
+    REFERENCES `ironflix`.`staff` (`staff_id`),
+  CONSTRAINT `fk_rental_inventory1`
+    FOREIGN KEY (`inventory_id`)
+    REFERENCES `ironflix`.`inventory` (`inventory_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
@@ -223,3 +222,5 @@ COLLATE = utf8mb4_0900_ai_ci;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
