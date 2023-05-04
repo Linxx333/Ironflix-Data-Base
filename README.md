@@ -26,6 +26,7 @@ Para empezar en base a la observación de los datos estructuro un modelo entidad
 <details>
 <summary>EXPLICACIÓN DEL MODELO ENTIDAD RELACIÓN</summary>
 
+
 Explicado de izquierda a derecha se entiende que:
     
 * Establezco una relación many to many entre la tabla actor y la tabla film que pasa por la tabla actor_has_film.
@@ -49,11 +50,11 @@ En cuanto a la estructuración y limpieza de los datos, se utiliza el dataframe 
 
 Por otro lado, de la tabla film sacamos la FK de language para introducirla en la tabla de inventory. También en inventory igualaremos a 1 todos los valores del FK de store pues de momento solo contamos con una tienda. 
 
-Una vez hecho esto y comprobado que todos los datos son correctos y no hay nulos donde no debería haberlos*, podemos proceder a la inserción de los datos. Las tablas no mencionadas solo sirvieron como aporte de información ya sea al análisis de los datos para la futura creación de la base de datos como para la inserción misma de estos en la base.
-
-* Existen nulos para la FK de category en film pues no tenemos todos los datos de a que categoría pertenece cada película y como no depende de nosotros se ha dejado así. Del mismo modo no sabemos según que actores en que películas participan. Por último da la sensación de que no tenemos los datos reales del inventario del que disponemos, al menos por lo que parece ver en los antiguos datos de rental.
+Una vez hecho esto y comprobado que todos los datos son correctos y no hay nulos donde no debería haberlos[^*], podemos proceder a la inserción de los datos. Las tablas no mencionadas solo sirvieron como aporte de información ya sea al análisis de los datos para la futura creación de la base de datos como para la inserción misma de estos en la base.
 
 Finalmente una vez introducidos correctamente los datos realizamos una serie de querys que simulan nuestro primer servicio asi como la búsqueda de algunos datos de interés
+
+[^*] Existen nulos para la FK de category en film pues no tenemos todos los datos de a que categoría pertenece cada película y como no depende de nosotros se ha dejado así. Del mismo modo no sabemos según que actores en que películas participan. Por último da la sensación de que no tenemos los datos reales del inventario del que disponemos, al menos por lo que parece ver en los antiguos datos de rental.
 
 </details>
 
