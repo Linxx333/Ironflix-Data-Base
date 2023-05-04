@@ -28,15 +28,15 @@ Para empezar en base a la observación de los datos estructuro un modelo entidad
 
 Explicado de izquierda a derecha se entiende que:
     
-    - Establezco una relación many to many entre la tabla actor y la tabla film que pasa por la tabla actor_has_film.
-    - La tabla film está a su vez relacionada con la tabla category en una relación one to many donde una categoría puede estar en múltiples películas.
-    - Por último esta tabla (film) se relaciona en una relación one to many con la tabla inventory donde una película puede existir múltiples veces en el inventario (podemos tener varias copias de una misma película).
-    - A su vez inventory también tiene una relación one to many con la tabla language pues el mismo idioma puede aparecer múltiples veces en inventario. No lo relacioné con film como si se hacía en los datos originales para que en dicha tabla no exista ningún título repetido. 
-    - También con stores, ya que será la relación que defina de que tienda es dicho inventario. Inicialmente solo disponemos de una tienda pero decidí crear esta tabla por si el negocio crece.
-    - Lo mismo pasa con staff, tabla que está relacionada también con stores en una relación one to many (en una tienda habrá múltiples miembros del staff), inicialmente disponiendo de un único dato, yo mismo.
-    - Staff e inventory están ambas relacionadas con rental, al igual que clients. Todas en una relacion one to many de forma que rellenen esta tabla con los datos de que cliente alquila, que staff le atiende y que producto se está alquilando (además de otros datos de interés).
-    - Clients y rental también estarán vacias ya que no me interesa saber que clientes tuve hace x años ni tampoco que se alquiló entonces.
-    - Antes de continuar con la estructuración y la limpieza de los datos decir que se puede llegar a la conclusión por lo ya expuesto que las tablas a llenar con los datos de los CSVs son Actor,Actor_has_film, Film, Category, Inventory y Language.
+* Establezco una relación many to many entre la tabla actor y la tabla film que pasa por la tabla actor_has_film.
+* La tabla film está a su vez relacionada con la tabla category en una relación one to many donde una categoría puede estar en múltiples películas.
+* Por último esta tabla (film) se relaciona en una relación one to many con la tabla inventory donde una película puede existir múltiples veces en el inventario (podemos tener varias copias de una misma película).
+* A su vez inventory también tiene una relación one to many con la tabla language pues el mismo idioma puede aparecer múltiples veces en inventario. No lo relacioné con film como si se hacía en los datos originales para que en dicha tabla no exista ningún título repetido. 
+* También con stores, ya que será la relación que defina de que tienda es dicho inventario. Inicialmente solo disponemos de una tienda pero decidí crear esta tabla por si el negocio crece.
+* Lo mismo pasa con staff, tabla que está relacionada también con stores en una relación one to many (en una tienda habrá múltiples miembros del staff), inicialmente disponiendo de un único dato, yo mismo.
+* Staff e inventory están ambas relacionadas con rental, al igual que clients. Todas en una relacion one to many de forma que rellenen esta tabla con los datos de que cliente alquila, que staff le atiende y que producto se está alquilando (además de otros datos de interés).
+* Clients y rental también estarán vacias ya que no me interesa saber que clientes tuve hace x años ni tampoco que se alquiló entonces.
+* Antes de continuar con la estructuración y la limpieza de los datos decir que se puede llegar a la conclusión por lo ya expuesto que las tablas a llenar con los datos de los CSVs son Actor,Actor_has_film, Film, Category, Inventory y Language.
  
 
 </details>
